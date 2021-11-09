@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 366902020}
   - component: {fileID: 366902022}
   - component: {fileID: 366902021}
+  - component: {fileID: 366902023}
   m_Layer: 0
   m_Name: LeftArm
   m_TagString: Untagged
@@ -425,6 +426,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366902019}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &366902023
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366902019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2.0000005
+  m_Direction: 1
+  m_Center: {x: 0.000003874302, y: -0.00000047683716, z: -0.00000008940697}
 --- !u!4 &381717943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7151271164014331490, guid: 171c8df6e004c5b41a75e6521a23f5a4, type: 3}
@@ -469,7 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c38fafd55ca4df4ea72ba95c59ac55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poi: {fileID: 3935902628808276535, guid: e85bdbe27141b344c8dc23422c9f091f, type: 3}
+  target: {fileID: 0}
+  minXY: {x: -14.19, y: -0.5, z: -10}
   camZ: 0
   easing: 0.05
 --- !u!20 &519420031
@@ -657,6 +673,7 @@ GameObject:
   - component: {fileID: 747803959}
   - component: {fileID: 747803961}
   - component: {fileID: 747803960}
+  - component: {fileID: 747803962}
   m_Layer: 0
   m_Name: RightArm
   m_TagString: Untagged
@@ -727,6 +744,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747803958}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &747803962
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747803958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2.0000005
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0.00000047683716, z: -0.00000008940697}
 --- !u!1001 &779319624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1352,11 +1383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2908f31b30eca2a47ac25fc3fe8f5d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdPrefab: {fileID: 3935902628808276535, guid: e85bdbe27141b344c8dc23422c9f091f, type: 3}
+  birdPrefab: {fileID: 4511927650810288682, guid: dfc962ee9774f6442a80de85db8305a2, type: 3}
   launchPoint: {fileID: 977580044}
   bird: {fileID: 0}
-  aimingMode: 0
   launchPos: {x: 0, y: 0, z: 0}
+  aimingMode: 0
   velocityMult: 10
 --- !u!1001 &1506651898
 PrefabInstance:
@@ -1593,6 +1624,7 @@ GameObject:
   - component: {fileID: 1821354720}
   - component: {fileID: 1821354722}
   - component: {fileID: 1821354721}
+  - component: {fileID: 1821354723}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -1663,6 +1695,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821354719}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &1821354723
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821354719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1001 &1825668119
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,47 +1,56 @@
 ﻿using UnityEngine;
-using System.Collections;
+
 public class FollowCam : MonoBehaviour
 {
-    static public FollowCam S;
-    public GameObject poi;
+    #region Components
+
+    public GameObject target;
+    private Camera _camera;
+    public Vector3 minXY;
+    private Vector3 defaultPosition;
+
+    #endregion
+
     public float camZ, easing = 0.05f;
-    Vector2 minXY;
-    void Awake()
+
+    private void Awake()
     {
-        S = this;
-        camZ = this.transform.position.z;
+        camZ = transform.position.z;
+        defaultPosition = transform.position;
+        _camera = GetComponent<Camera>();
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         Vector3 destination;
-        // If there is no poi, return to P:[0,0,0]
-        if (poi == null)
+        
+        if (!target)
         {
-            destination = Vector3.zero;
+            destination = defaultPosition;
         }
         else
         {
-            // Get the position of the poi
-            destination = poi.transform.position;
-            // If poi is a Projectile, check to see if it's at rest
-            if (poi.tag == "Projectile")
-            {
-                // if it is sleeping (that is, not moving)
-                if (poi.GetComponent<Rigidbody>().IsSleeping())
-                {
-                    // return to default view
-                    poi = null;
-                    // in the next update
-                    return;
-                }
-            }
+            // Get the position of the target
+            destination = target.transform.position;
+            
+            // if (target.tag == "Projectile")
+            // {
+            //     // if it is sleeping (that is, not moving)
+            //     if (target.GetComponent<Rigidbody>().IsSleeping())
+            //     {
+            //         // return to default view
+            //         target = null;
+            //         // in the next update
+            //         return;
+            //     }
+            // }
         }
-        if (poi == null) return;
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y);
         destination = Vector3.Lerp(transform.position, destination, easing);
         destination.z = camZ;
+        
         transform.position = destination;
-        this.GetComponent<Camera>().orthographicSize = destination.y + 10;
+        _camera.orthographicSize = destination.y + 10;
     }
 }
